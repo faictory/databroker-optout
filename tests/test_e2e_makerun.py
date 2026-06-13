@@ -101,36 +101,41 @@ class TestE2EMakeRun:
         # Verify top-level structure
         assert 'version' in tracker, "tracker.json should have 'version' key"
         assert 'updated' in tracker, "tracker.json should have 'updated' key"
-        assert 'brokers' in tracker, "tracker.json should have 'brokers' key"
+        assert 'exposures' in tracker, "tracker.json should have 'exposures' key"
 
-        brokers = tracker['brokers']
-        assert isinstance(brokers, dict), "brokers should be a dictionary"
-        assert len(brokers) > 0, "brokers should have entries"
-        assert len(brokers) == 5, "Expected 5 brokers for sample.csv"
+        exposures = tracker['exposures']
+        assert isinstance(exposures, dict), "exposures should be a dictionary"
+        assert len(exposures) > 0, "exposures should have entries"
+        assert len(exposures) == 4, "Expected 4 exposures for sample.csv"
 
-        # Verify each broker entry has required fields
-        for slug, broker_info in brokers.items():
-            assert 'broker' in broker_info, f"Broker entry {slug} should have 'broker' field"
-            assert 'status' in broker_info, f"Broker entry {slug} should have 'status' field"
-            assert 'exposure_ids' in broker_info, f"Broker entry {slug} should have 'exposure_ids' field"
-            assert 'request_file' in broker_info, f"Broker entry {slug} should have 'request_file' field"
-            assert 'history' in broker_info, f"Broker entry {slug} should have 'history' field"
+        # Verify each exposure entry has required fields
+        for exp_id, exposure_info in exposures.items():
+            assert 'exposure_id' in exposure_info, f"Exposure entry {exp_id} should have 'exposure_id' field"
+            assert 'name' in exposure_info, f"Exposure entry {exp_id} should have 'name' field"
+            assert 'location' in exposure_info, f"Exposure entry {exp_id} should have 'location' field"
+            assert 'brokers' in exposure_info, f"Exposure entry {exp_id} should have 'brokers' field"
 
-            # Verify status is valid
-            assert broker_info['status'] in ('pending', 'submitted', 'confirmed'), \
-                f"Broker {slug} status should be valid"
+            # Verify brokers is a dictionary with at least one entry
+            brokers = exposure_info['brokers']
+            assert isinstance(brokers, dict), f"Exposure {exp_id} brokers should be a dictionary"
+            assert len(brokers) > 0, f"Exposure {exp_id} should have at least one broker"
 
-            # Verify exposure_ids is a list
-            assert isinstance(broker_info['exposure_ids'], list), \
-                f"Broker {slug} exposure_ids should be a list"
-            assert len(broker_info['exposure_ids']) > 0, \
-                f"Broker {slug} should have at least one exposure"
+            # Verify each broker entry has required fields
+            for broker_slug, broker_info in brokers.items():
+                assert 'broker' in broker_info, f"Broker entry {broker_slug} should have 'broker' field"
+                assert 'status' in broker_info, f"Broker entry {broker_slug} should have 'status' field"
+                assert 'request_file' in broker_info, f"Broker entry {broker_slug} should have 'request_file' field"
+                assert 'history' in broker_info, f"Broker entry {broker_slug} should have 'history' field"
 
-            # Verify history is a list with at least one entry
-            assert isinstance(broker_info['history'], list), \
-                f"Broker {slug} history should be a list"
-            assert len(broker_info['history']) > 0, \
-                f"Broker {slug} history should have at least one entry"
+                # Verify status is valid
+                assert broker_info['status'] in ('pending', 'submitted', 'confirmed'), \
+                    f"Broker {broker_slug} status should be valid"
+
+                # Verify history is a list with at least one entry
+                assert isinstance(broker_info['history'], list), \
+                    f"Broker {broker_slug} history should be a list"
+                assert len(broker_info['history']) > 0, \
+                    f"Broker {broker_slug} history should have at least one entry"
 
     @classmethod
     def teardown_class(cls):

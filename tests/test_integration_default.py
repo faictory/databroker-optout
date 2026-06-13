@@ -45,7 +45,7 @@ class TestIntegrationDefaultRun:
         assert set(request_files) == expected_files
 
     def test_default_run_tracker_json_5_entries_all_pending(self, tmp_path):
-        """The default run should create tracker.json with 5 entries all at pending status."""
+        """The default run should create tracker.json with 4 exposures and 5 broker entries all at pending status."""
         result = main(['examples/sample.csv', '--out', str(tmp_path)])
         assert result == 0
 
@@ -56,11 +56,15 @@ class TestIntegrationDefaultRun:
             tracker = json.load(f)
 
         assert tracker['version'] == 1
-        assert 'brokers' in tracker
+        assert 'exposures' in tracker
 
-        brokers = tracker['brokers']
-        assert len(brokers) == 5
+        exposures = tracker['exposures']
+        assert len(exposures) == 4
 
-        # Verify all entries are at pending status
-        for broker_slug, broker_entry in brokers.items():
-            assert broker_entry['status'] == 'pending'
+        # Verify all broker entries are at pending status
+        total_brokers = 0
+        for exposure_id, exposure_entry in exposures.items():
+            for broker_slug, broker_entry in exposure_entry['brokers'].items():
+                assert broker_entry['status'] == 'pending'
+                total_brokers += 1
+        assert total_brokers == 5

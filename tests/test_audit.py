@@ -52,8 +52,10 @@ class TestRunAudit:
                 tracker_data = json.load(f)
 
             assert tracker_data['version'] == 1
-            assert len(tracker_data['brokers']) == 5
-            assert all(b['status'] == 'pending' for b in tracker_data['brokers'].values())
+            assert len(tracker_data['exposures']) == 4
+            for exposure_data in tracker_data['exposures'].values():
+                for broker_info in exposure_data['brokers'].values():
+                    assert broker_info['status'] == 'pending'
 
     def test_run_audit_with_identity(self):
         """Test that requester identity is filled in request signatures."""
@@ -127,7 +129,7 @@ class TestRunAudit:
             with open(tracker_path, 'r') as f:
                 tracker_data = json.load(f)
 
-            assert tracker_data['brokers']['spokeo']['status'] == 'submitted'
+            assert tracker_data['exposures']['exp-001']['brokers']['spokeo']['status'] == 'submitted'
 
     def test_run_audit_input_info(self):
         """Test that input info is correctly captured."""
@@ -274,5 +276,5 @@ class TestRunAudit:
             with open(tracker_path, 'r') as f:
                 tracker_data = json.load(f)
 
-            assert tracker_data['brokers']['spokeo']['status'] == 'submitted'
-            assert tracker_data['brokers']['whitepages']['status'] == 'confirmed'
+            assert tracker_data['exposures']['exp-001']['brokers']['spokeo']['status'] == 'submitted'
+            assert tracker_data['exposures']['exp-001']['brokers']['whitepages']['status'] == 'confirmed'

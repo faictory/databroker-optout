@@ -98,7 +98,7 @@ def run_audit(input_path, identity, deadnames, out_dir, marks, now):
 
     # Reconcile tracker
     tracker_path = os.path.join(out_dir, 'tracker.json')
-    tracker_counts = tracker.reconcile(tracker_path, brokers_dict, marks, now)
+    tracker_counts = tracker.reconcile(tracker_path, exposures, brokers_dict, marks, now)
 
     # Build result dict
     deduped_rows = row_count - len(exposures)

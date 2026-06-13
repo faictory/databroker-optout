@@ -17,11 +17,11 @@ class TestMarkPersistenceAcrossRuns:
         with open(tracker_path) as f:
             tracker1 = json.load(f)
 
-        assert tracker1['brokers']['spokeo']['status'] == 'submitted'
-        counts1 = tracker1['summary'] if 'summary' in tracker1 else {
-            'pending': sum(1 for b in tracker1['brokers'].values() if b['status'] == 'pending'),
-            'submitted': sum(1 for b in tracker1['brokers'].values() if b['status'] == 'submitted'),
-            'confirmed': sum(1 for b in tracker1['brokers'].values() if b['status'] == 'confirmed')
+        assert tracker1['exposures']['exp-001']['brokers']['spokeo']['status'] == 'submitted'
+        counts1 = {
+            'pending': sum(1 for exp in tracker1['exposures'].values() for b in exp['brokers'].values() if b['status'] == 'pending'),
+            'submitted': sum(1 for exp in tracker1['exposures'].values() for b in exp['brokers'].values() if b['status'] == 'submitted'),
+            'confirmed': sum(1 for exp in tracker1['exposures'].values() for b in exp['brokers'].values() if b['status'] == 'confirmed')
         }
 
         # Second run: no --mark flag, same input and output directory
@@ -32,11 +32,11 @@ class TestMarkPersistenceAcrossRuns:
         with open(tracker_path) as f:
             tracker2 = json.load(f)
 
-        assert tracker2['brokers']['spokeo']['status'] == 'submitted'
-        counts2 = tracker2['summary'] if 'summary' in tracker2 else {
-            'pending': sum(1 for b in tracker2['brokers'].values() if b['status'] == 'pending'),
-            'submitted': sum(1 for b in tracker2['brokers'].values() if b['status'] == 'submitted'),
-            'confirmed': sum(1 for b in tracker2['brokers'].values() if b['status'] == 'confirmed')
+        assert tracker2['exposures']['exp-001']['brokers']['spokeo']['status'] == 'submitted'
+        counts2 = {
+            'pending': sum(1 for exp in tracker2['exposures'].values() for b in exp['brokers'].values() if b['status'] == 'pending'),
+            'submitted': sum(1 for exp in tracker2['exposures'].values() for b in exp['brokers'].values() if b['status'] == 'submitted'),
+            'confirmed': sum(1 for exp in tracker2['exposures'].values() for b in exp['brokers'].values() if b['status'] == 'confirmed')
         }
 
         # Verify counts are unchanged
