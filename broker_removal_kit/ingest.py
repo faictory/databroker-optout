@@ -108,15 +108,14 @@ def _normalize_record(row, fmt):
 		aliases = row["aliases"]
 		if isinstance(aliases, list):
 			# Already a list (from JSON)
-			record["aliases"] = aliases
+			if aliases:  # Only include non-empty lists
+				record["aliases"] = aliases
 		elif isinstance(aliases, str):
 			# String from CSV - could be comma or pipe delimited
 			# Default to comma-delimited
 			if aliases.strip():
-				record["aliases"] = [a.strip() for a in aliases.split(",")]
-			else:
-				record["aliases"] = []
-		else:
-			record["aliases"] = []
+				normalized = [a.strip() for a in aliases.split(",")]
+				if normalized:  # Only include if not empty after normalization
+					record["aliases"] = normalized
 
 	return record
