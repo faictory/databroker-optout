@@ -40,7 +40,6 @@ def reconcile(path, exposures, brokers, marks, now):
             marks_by_slug[canonical_slug] = status
 
     new_exposures = {}
-    processed_broker_slugs = set()
 
     for exposure in exposures:
         exp_id = exposure.get('id', '')
