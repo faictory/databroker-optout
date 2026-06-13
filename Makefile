@@ -25,7 +25,7 @@ test:
 check: lint test
 
 build:
-	pip install -e ".[dev]"
+	python -m pip install -e ".[dev]"
 
 run:
 	python -m $(PACKAGE) $(SMOKE_ARGS)
