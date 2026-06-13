@@ -2,3 +2,4 @@ name = "Jordan Rivera"
 email = "jordan@example.com"
 address = "PO Box 1234, Portland, OR 97201"
 deadnames = ["James Rivera"]
+dir = "brk-out"
