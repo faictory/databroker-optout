@@ -63,3 +63,32 @@ def format_text(result):
     lines.append(f"tracker: {tracker['path']}  ({pending} pending · {submitted} submitted · {confirmed} confirmed)")
 
     return "\n".join(lines)
+
+
+def format_json(result):
+    return {
+        "input": result["input"],
+        "broker_db": result["broker_db"],
+        "exposures": [
+            {
+                "id": exp["id"],
+                "name": exp["name"],
+                "location": exp["location"],
+                "sources": exp["sources"],
+                "priority": exp["priority"],
+                "deadname_matches": exp.get("deadname_matches", []),
+                "urls": exp.get("urls", [])
+            }
+            for exp in result["exposures"]
+        ],
+        "summary": result["summary"],
+        "requests": [
+            {
+                "broker": req["broker"],
+                "slug": req["slug"],
+                "file": req["file"]
+            }
+            for req in result["requests"]
+        ],
+        "tracker": result["tracker"]
+    }
