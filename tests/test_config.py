@@ -1,8 +1,8 @@
 import pytest
 import tempfile
 import os
-from broker_removal_kit.config import load_config
-from broker_removal_kit.errors import BrokerKitError
+from databroker_optout.config import load_config
+from databroker_optout.errors import BrokerKitError
 
 
 class TestLoadConfigValid:

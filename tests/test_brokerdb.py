@@ -1,4 +1,4 @@
-from broker_removal_kit.brokerdb import slugify, lookup, verified_date, broker_count
+from databroker_optout.brokerdb import slugify, lookup, verified_date, broker_count
 
 
 class TestSlugify:

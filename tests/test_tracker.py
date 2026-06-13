@@ -2,8 +2,8 @@ import json
 import os
 import pytest
 import tempfile
-from broker_removal_kit.tracker import parse_mark, reconcile
-from broker_removal_kit.errors import BrokerKitError
+from databroker_optout.tracker import parse_mark, reconcile
+from databroker_optout.errors import BrokerKitError
 
 
 class TestParseMark:

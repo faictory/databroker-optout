@@ -1,4 +1,4 @@
-from broker_removal_kit.normalize import normalize_name, normalize_location, dedup_key
+from databroker_optout.normalize import normalize_name, normalize_location, dedup_key
 
 
 class TestNormalizeName:

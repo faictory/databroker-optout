@@ -1,4 +1,4 @@
-# broker-removal-kit
+# databroker-optout
 
 An offline command-line kit that turns a pile of manually-collected people-search /
 data-broker hits into a deduped, deadname-aware exposure audit, a set of ready-to-send
@@ -10,14 +10,14 @@ per-broker removal requests, and a status tracker that persists across runs.
 
 ### Charter
 
-`broker-removal-kit` lets a doxxing-target individual (e.g. a trans person or LGBTQ+
+`databroker-optout` lets a doxxing-target individual (e.g. a trans person or LGBTQ+
 journalist) feed in the data-broker listings they found by hand and, in one offline run,
 get back a deduped exposure list with deadname matches flagged high-priority, a drafted
 removal request for every broker, and a persistent removal tracker.
 
 ### Command Surface
 
-The tool is invoked as `python -m broker_removal_kit <INPUT> [flags]`. There is one
+The tool is invoked as `python -m databroker_optout <INPUT> [flags]`. There is one
 command; it always performs the same audit-and-generate pass and reconciles the tracker.
 
 | Token | Kind | Takes | Effect |
@@ -95,7 +95,7 @@ A run produces three things: (a) files under `--out`, and (b) a summary on stdou
 **Stdout summary (`--format text`, default):**
 
 ```
-broker-removal-kit — exposure audit
+databroker-optout — exposure audit
 input: examples/sample.csv  (6 rows, csv)
 broker DB: 12 brokers, verified 2026-01-15
 
@@ -141,8 +141,8 @@ case end-to-end: ingest → normalize → dedupe → write per-broker removal re
 the tracker → print the summary.
 
 ```
-$ python -m broker_removal_kit examples/sample.csv
-broker-removal-kit — exposure audit
+$ python -m databroker_optout examples/sample.csv
+databroker-optout — exposure audit
 input: examples/sample.csv  (6 rows, csv)
 broker DB: 12 brokers, verified 2026-01-15
 
@@ -166,7 +166,7 @@ signatures use placeholders; everything else is identical.)
 
 1. **Full audit with identity + deadnames from config** (the `make run` smoke):
    ```
-   $ python -m broker_removal_kit examples/sample.csv --config examples/brk.toml
+   $ python -m databroker_optout examples/sample.csv --config examples/brk.toml
    ...
    high priority: 1
      [HIGH] exp-001  Jordan Rivera — Portland, OR   sources: Spokeo, WhitePages   (deadname match: "James Rivera")
@@ -175,28 +175,28 @@ signatures use placeholders; everything else is identical.)
 
 2. **Flag a deadname inline without a config file:**
    ```
-   $ python -m broker_removal_kit examples/sample.csv --deadname "James Rivera"
+   $ python -m databroker_optout examples/sample.csv --deadname "James Rivera"
    high priority: 1
      [HIGH] exp-001  Jordan Rivera — Portland, OR   sources: Spokeo, WhitePages   (deadname match: "James Rivera")
    ```
 
 3. **Mark a request submitted; the status persists to the next run:**
    ```
-   $ python -m broker_removal_kit examples/sample.csv --mark spokeo=submitted
+   $ python -m databroker_optout examples/sample.csv --mark spokeo=submitted
    tracker: brk-out/tracker.json  (4 pending · 1 submitted · 0 confirmed)
-   $ python -m broker_removal_kit examples/sample.csv          # re-run, no mark
+   $ python -m databroker_optout examples/sample.csv          # re-run, no mark
    tracker: brk-out/tracker.json  (4 pending · 1 submitted · 0 confirmed)
    ```
 
 4. **JSON summary into a chosen output directory:**
    ```
-   $ python -m broker_removal_kit examples/sample.json --format json --out /tmp/audit
+   $ python -m databroker_optout examples/sample.json --format json --out /tmp/audit
    { "input": { "path": "examples/sample.json", "rows": 6, "format": "json" }, ... }
    ```
 
 5. **Malformed input is rejected:**
    ```
-   $ python -m broker_removal_kit examples/bad-missing-name.csv
+   $ python -m databroker_optout examples/bad-missing-name.csv
    error: input is missing required column 'name'
    $ echo $?
    2
@@ -285,7 +285,7 @@ entirely manual.
 
 ## Hermetic build constraints
 
-- **Language / toolchain:** Python 3, packaged so `python -m broker_removal_kit` is the
+- **Language / toolchain:** Python 3, packaged so `python -m databroker_optout` is the
   entrypoint; `ruff` for lint, `pytest` for tests. Permissive-licensed dependencies only
   (standard library plus, at most, a TOML reader on older Pythons).
 - **Offline & secret-free:** builds and tests run with no network, no secrets, no paid
@@ -297,7 +297,7 @@ entirely manual.
   and `make run`. **`make run` invokes the real entrypoint on a bundled fixture**, namely:
 
   ```
-  python -m broker_removal_kit examples/sample.csv --config examples/brk.toml
+  python -m databroker_optout examples/sample.csv --config examples/brk.toml
   ```
 
   where `examples/sample.csv` is the six-row fixture used throughout this document and

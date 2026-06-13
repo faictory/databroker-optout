@@ -1,7 +1,7 @@
 import json
 import os
-from broker_removal_kit.errors import BrokerKitError
-from broker_removal_kit import brokerdb
+from databroker_optout.errors import BrokerKitError
+from databroker_optout import brokerdb
 
 
 def parse_mark(raw):

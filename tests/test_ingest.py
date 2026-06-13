@@ -1,8 +1,8 @@
 import json
 import pytest
 
-from broker_removal_kit.errors import BrokerKitError
-from broker_removal_kit.ingest import load_records
+from databroker_optout.errors import BrokerKitError
+from databroker_optout.ingest import load_records
 
 
 SAMPLE_CSV = "examples/sample.csv"

@@ -1,4 +1,4 @@
-from broker_removal_kit.dedupe import build_exposures
+from databroker_optout.dedupe import build_exposures
 
 
 def test_empty_input():

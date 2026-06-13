@@ -1,19 +1,25 @@
-# broker-removal-kit
+# databroker-optout
 
 An offline tool for auditing personal data exposures across data brokers, generating removal requests, and tracking the status of your opt-out submissions.
 
 ## Purpose
 
-`broker-removal-kit` helps you:
+`databroker-optout` helps you:
 1. **Audit** your personal information across data brokers (offline, no network access)
 2. **Generate** removal request letters pre-formatted with broker-specific contact info and opt-out procedures
 3. **Track** the status of your removal requests (pending, submitted, confirmed) across runs
 
 All broker opt-out procedures come from a bundled, dated database—no external network calls are made.
 
-## License
+## Install
 
-MIT. See [LICENSE](LICENSE).
+Python 3.10+. Install in development mode:
+
+```bash
+pip install -e ".[dev]"   # or: make build
+```
+
+The tool is then runnable as a module (`python -m databroker_optout …`).
 
 ## Quick Start
 
@@ -23,13 +29,13 @@ make run
 
 This runs the canonical smoke test with the bundled example:
 ```bash
-python -m broker_removal_kit examples/sample.csv --config examples/brk.toml
+python -m databroker_optout examples/sample.csv --config examples/brk.toml
 ```
 
 ## Invocation
 
 ```bash
-python -m broker_removal_kit <INPUT> [flags]
+python -m databroker_optout <INPUT> [flags]
 ```
 
 `<INPUT>` is the **required** path to a `.csv` or `.json` file of broker hits. Format is auto-detected from the extension. Each record must have at least `broker` and `name` fields/columns.
@@ -56,29 +62,37 @@ Each run produces:
 
 **Basic audit (no config or deadnames):**
 ```bash
-python -m broker_removal_kit examples/sample.csv
+python -m databroker_optout examples/sample.csv
 ```
 
 **With deadname flagging:**
 ```bash
-python -m broker_removal_kit examples/sample.csv --deadname "James Rivera"
+python -m databroker_optout examples/sample.csv --deadname "James Rivera"
 ```
 
 **Full audit with identity and deadnames from config:**
 ```bash
-python -m broker_removal_kit examples/sample.csv --config examples/brk.toml
+python -m databroker_optout examples/sample.csv --config examples/brk.toml
 ```
 
 **Mark a broker's status as submitted (persists on re-run):**
 ```bash
-python -m broker_removal_kit examples/sample.csv --mark spokeo=submitted
+python -m databroker_optout examples/sample.csv --mark spokeo=submitted
 ```
 
 **JSON summary output:**
 ```bash
-python -m broker_removal_kit examples/sample.csv --format json --out /tmp/audit
+python -m databroker_optout examples/sample.csv --format json --out /tmp/audit
 ```
 
 ## Offline Operation
 
 This tool operates entirely offline. All broker contact info, opt-out URLs, and verification dates are bundled in the package—no network access is required or attempted.
+
+## Design
+
+See [DESIGN.md](DESIGN.md) for the full problem statement, goals, non-goals, and acceptance criteria.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

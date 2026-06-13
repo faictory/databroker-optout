@@ -2,7 +2,7 @@ import csv
 import json
 from pathlib import Path
 
-from broker_removal_kit.errors import BrokerKitError
+from databroker_optout.errors import BrokerKitError
 
 
 def load_records(path):

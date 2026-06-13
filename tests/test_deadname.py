@@ -1,4 +1,4 @@
-from broker_removal_kit.deadname import match_deadnames, apply_priority
+from databroker_optout.deadname import match_deadnames, apply_priority
 
 
 class TestMatchDeadnames:

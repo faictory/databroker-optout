@@ -4,12 +4,12 @@ import json
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-from broker_removal_kit import __version__, config, audit, summary, tracker, brokerdb, errors
+from databroker_optout import __version__, config, audit, summary, tracker, brokerdb, errors
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(
-        prog='broker-removal-kit',
+        prog='databroker-optout',
         description='Audit broker data exposures and generate removal requests',
         add_help=False,
     )

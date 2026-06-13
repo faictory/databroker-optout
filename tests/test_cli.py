@@ -2,8 +2,8 @@ import os
 import sys
 import json
 import tempfile
-from broker_removal_kit.cli import main
-from broker_removal_kit import __version__
+from databroker_optout.cli import main
+from databroker_optout import __version__
 
 
 class TestVersion:
@@ -24,13 +24,13 @@ class TestHelp:
         result = main(['--help'])
         assert result == 0
         captured = capsys.readouterr()
-        assert 'broker-removal-kit' in captured.out or 'usage' in captured.out
+        assert 'databroker-optout' in captured.out or 'usage' in captured.out
 
     def test_h_flag_prints_help(self, capsys):
         result = main(['-h'])
         assert result == 0
         captured = capsys.readouterr()
-        assert 'broker-removal-kit' in captured.out or 'usage' in captured.out
+        assert 'databroker-optout' in captured.out or 'usage' in captured.out
 
 
 class TestBasicRun:
@@ -44,7 +44,7 @@ class TestBasicRun:
             result = main(['examples/sample.csv', '--out', out_dir])
             assert result == 0
             captured = capsys.readouterr()
-            assert 'broker-removal-kit' in captured.out
+            assert 'databroker-optout' in captured.out
             assert 'exposures' in captured.out
 
     def test_default_run_writes_requests(self):
@@ -305,7 +305,7 @@ class TestMainModule:
     def test_main_module_invocation(self):
         import subprocess
         result = subprocess.run(
-            [sys.executable, '-m', 'broker_removal_kit', '--version'],
+            [sys.executable, '-m', 'databroker_optout', '--version'],
             capture_output=True,
             text=True
         )
