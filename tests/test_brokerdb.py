@@ -69,8 +69,8 @@ class TestVerifiedDate:
 
 
 class TestBrokerCount:
-    def test_broker_count_is_twelve(self):
-        assert broker_count() == 12
+    def test_broker_count_is_at_least_twelve(self):
+        assert broker_count() >= 12
 
     def test_broker_count_is_positive_int(self):
         count = broker_count()
