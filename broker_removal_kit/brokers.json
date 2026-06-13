@@ -1,0 +1,89 @@
+{
+  "verified": "2026-01-15",
+  "brokers": [
+    {
+      "name": "Spokeo",
+      "slug": "spokeo",
+      "recipient": "privacy@spokeo.com",
+      "method": "email",
+      "opt_out_url": "https://www.spokeo.com/optout"
+    },
+    {
+      "name": "WhitePages",
+      "slug": "whitepages",
+      "recipient": "support@whitepages.com",
+      "method": "email",
+      "opt_out_url": "https://www.whitepages.com/suppression"
+    },
+    {
+      "name": "BeenVerified",
+      "slug": "beenverified",
+      "recipient": "privacy@beenverified.com",
+      "method": "email",
+      "opt_out_url": "https://www.beenverified.com/optout"
+    },
+    {
+      "name": "TruePeopleSearch",
+      "slug": "truepeoplesearch",
+      "recipient": "privacy@truepeoplesearch.com",
+      "method": "email",
+      "opt_out_url": "https://www.truepeoplesearch.com/optout"
+    },
+    {
+      "name": "Radaris",
+      "slug": "radaris",
+      "recipient": "privacy@radaris.com",
+      "method": "email",
+      "opt_out_url": "https://radaris.com/optout"
+    },
+    {
+      "name": "TruthFinder",
+      "slug": "truthfinder",
+      "recipient": "support@truthfinder.com",
+      "method": "email",
+      "opt_out_url": "https://www.truthfinder.com/privacy/removal"
+    },
+    {
+      "name": "InstantCheckmate",
+      "slug": "instantcheckmate",
+      "recipient": "privacy@instantcheckmate.com",
+      "method": "email",
+      "opt_out_url": "https://www.instantcheckmate.com/optout"
+    },
+    {
+      "name": "PeopleLooker",
+      "slug": "peoplelooker",
+      "recipient": "support@peoplelooker.com",
+      "method": "email",
+      "opt_out_url": "https://www.peoplelooker.com/privacy/removal"
+    },
+    {
+      "name": "ZoomInfo",
+      "slug": "zoominfo",
+      "recipient": "privacy@zoominfo.com",
+      "method": "email",
+      "opt_out_url": "https://www.zoominfo.com/optout"
+    },
+    {
+      "name": "Intelius",
+      "slug": "intelius",
+      "recipient": "privacy@intelius.com",
+      "method": "email",
+      "opt_out_url": "https://www.intelius.com/privacy"
+    },
+    {
+      "name": "PeepLookup",
+      "slug": "peeplookup",
+      "recipient": "info@peeplookup.com",
+      "method": "email",
+      "opt_out_url": "https://www.peeplookup.com/privacy"
+    },
+    {
+      "name": "FastPeopleSearch",
+      "slug": "fastpeoplesearch",
+      "recipient": "privacy@fastpeoplesearch.com",
+      "method": "email",
+      "opt_out_url": "https://www.fastpeoplesearch.com/optout"
+    }
+  ]
+}

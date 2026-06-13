@@ -1,0 +1,44 @@
+[
+  {
+    "broker": "Spokeo",
+    "name": "Jordan Rivera",
+    "location": "Portland, OR",
+    "url": "https://www.spokeo.com/Jordan-Rivera",
+    "aliases": ["James Rivera"]
+  },
+  {
+    "broker": "WhitePages",
+    "name": "Jordan Rivera",
+    "location": "Portland, OR",
+    "url": "https://www.whitepages.com/name/Jordan-Rivera",
+    "aliases": ["James Rivera"]
+  },
+  {
+    "broker": "BeenVerified",
+    "name": "Jordan Rivera",
+    "location": "Seattle, WA",
+    "url": "https://www.beenverified.com/Jordan-Rivera",
+    "aliases": []
+  },
+  {
+    "broker": "TruePeopleSearch",
+    "name": "A. Rivera",
+    "location": "Portland, OR",
+    "url": "https://www.truepeoplesearch.com/A-Rivera",
+    "aliases": []
+  },
+  {
+    "broker": "Radaris",
+    "name": "Jordan Rivera",
+    "location": "Eugene, OR",
+    "url": "https://www.radaris.com/Jordan-Rivera",
+    "aliases": []
+  },
+  {
+    "broker": "Spokeo",
+    "name": "Jordan Rivera",
+    "location": "Portland, OR",
+    "url": "https://www.spokeo.com/Jordan-Rivera-2",
+    "aliases": ["James Rivera"]
+  }
+]
