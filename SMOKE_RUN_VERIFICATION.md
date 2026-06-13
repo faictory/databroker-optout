@@ -7,7 +7,7 @@
 From a completely clean state (fresh checkout with no leftover artifacts):
 1. Removed all `brk-out/` directories and previous state
 2. Set up clean Python virtual environment
-3. Executed: `python -m broker_removal_kit examples/sample.csv --config examples/brk.toml`
+3. Executed: `python -m databroker_optout examples/sample.csv --config examples/brk.toml`
 4. Verified exit code and all artifacts
 
 ## Result
@@ -24,7 +24,7 @@ The smoke run completes successfully from a clean state with all expected output
 
 ### Stdout Output
 ```
-broker-removal-kit — exposure audit
+databroker-optout — exposure audit
 input: examples/sample.csv  (6 rows, csv)
 broker DB: 12 brokers, verified 2026-01-15
 
@@ -56,7 +56,7 @@ tracker: brk-out/tracker.json  (5 pending · 0 submitted · 0 confirmed)
 - Contains expected fields: broker, status, exposure_ids, request_file, opt_out_url, history
 
 ### Expected Output Validation
-✓ Correct summary header ("broker-removal-kit — exposure audit")
+✓ Correct summary header ("databroker-optout — exposure audit")
 ✓ Input metadata line present
 ✓ Broker DB info line (12 brokers, verified 2026-01-15)
 ✓ Exposure counts correct (4 unique, 2 rows deduped)
@@ -103,7 +103,7 @@ Verified spokeo.txt contains:
 
 ## Conclusion
 
-The broker-removal-kit smoke run is **fully functional and healthy** from a clean state. All components are working as designed:
+The databroker-optout smoke run is **fully functional and healthy** from a clean state. All components are working as designed:
 - CSV ingestion and normalization working correctly
 - Deduplication logic functioning (2 rows deduped correctly)
 - Deadname detection and flagging working (HIGH priority flagged for "James Rivera")

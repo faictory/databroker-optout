@@ -1,7 +1,7 @@
 def format_text(result):
     lines = []
 
-    lines.append("broker-removal-kit — exposure audit")
+    lines.append("databroker-optout — exposure audit")
 
     input_info = result["input"]
     lines.append(f"input: {input_info['path']}  ({input_info['rows']} rows, {input_info['format']})")

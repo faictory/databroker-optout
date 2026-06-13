@@ -5,13 +5,13 @@ The smoke run **UNEXPECTEDLY PASSES** from a clean state on the current main bra
 
 ## Reproduction Command
 ```bash
-python -m broker_removal_kit examples/sample.csv --config examples/brk.toml
+python -m databroker_optout examples/sample.csv --config examples/brk.toml
 ```
 
 ## Test Environment
 - **Platform:** macOS (Darwin 25.2.0)
 - **Python:** Python 3.14 from Homebrew
-- **Package:** broker-removal-kit 0.1.0 (installed from source with `python -m pip install -e ".[dev]"`)
+- **Package:** databroker-optout 0.1.0 (installed from source with `python -m pip install -e ".[dev]"`)
 - **Commit:** a40a0fd (Document clean-state smoke run verification: tool is fully operational (#44))
 - **Date/Time:** 2026-06-12 21:13:13 UTC
 
@@ -31,7 +31,7 @@ python -m broker_removal_kit examples/sample.csv --config examples/brk.toml
 
 ### Stdout (Complete)
 ```
-broker-removal-kit — exposure audit
+databroker-optout — exposure audit
 input: examples/sample.csv  (6 rows, csv)
 broker DB: 12 brokers, verified 2026-01-15
 
@@ -113,7 +113,7 @@ tracker: brk-out/tracker.json  (5 pending · 0 submitted · 0 confirmed)
 ## Acceptance Criteria
 
 This report meets all acceptance criteria:
-- ✓ Names the exact reproducing command: `python -m broker_removal_kit examples/sample.csv --config examples/brk.toml`
+- ✓ Names the exact reproducing command: `python -m databroker_optout examples/sample.csv --config examples/brk.toml`
 - ✓ Includes verbatim error output (and in this case, successful output with no errors)
 - ✓ Identifies the specific root cause: not a failure; the tool is working as designed
 - ✓ When the smoke run unexpectedly passes, the report documents the passing output as evidence ✓

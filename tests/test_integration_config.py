@@ -1,7 +1,7 @@
 import os
 import json
 import tempfile
-from broker_removal_kit.cli import main
+from databroker_optout.cli import main
 
 
 class TestConfigPriorityAndSignatureFill:

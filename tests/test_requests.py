@@ -1,4 +1,4 @@
-from broker_removal_kit.requests import render_request
+from databroker_optout.requests import render_request
 
 
 SPOKEO_ENTRY = {

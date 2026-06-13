@@ -1,7 +1,7 @@
 import os
 import json
 import tempfile
-from broker_removal_kit.audit import run_audit
+from databroker_optout.audit import run_audit
 
 
 class TestRunAudit:

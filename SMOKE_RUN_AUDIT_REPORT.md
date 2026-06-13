@@ -5,7 +5,7 @@ From a genuinely clean state on current main (commit 4522bd4), the bundled smoke
 
 ## Reproduction Command
 ```bash
-python -m broker_removal_kit examples/sample.csv --config examples/brk.toml
+python -m databroker_optout examples/sample.csv --config examples/brk.toml
 ```
 
 ## Current Output (Main Branch - Commit 4522bd4)
@@ -14,7 +14,7 @@ python -m broker_removal_kit examples/sample.csv --config examples/brk.toml
 
 **Stdout:**
 ```
-broker-removal-kit — exposure audit
+databroker-optout — exposure audit
 input: examples/sample.csv  (6 rows, csv)
 broker DB: 12 brokers, verified 2026-01-15
 
@@ -79,7 +79,7 @@ This violates the spec in two ways:
 2. Nests broker data under exposure IDs instead of organizing "one entry per broker" at the top level
 
 **The Root Cause Location:**
-- **File:** `broker_removal_kit/tracker.py`, function `reconcile()`
+- **File:** `databroker_optout/tracker.py`, function `reconcile()`
 - **Commit Introducing Bug:** 79115b7 (2026-06-12 20:15:41)
 - **Specific Failure:** The `reconcile()` function was modified to emit `tracker_data['exposures']` instead of `tracker_data['brokers']`
 
@@ -98,7 +98,7 @@ The current main branch (4522bd4) is 5 commits ahead of the fix (09db818), and i
 ## Acceptance Criteria Status
 
 ✓ **Verbatim failing output captured:** The output showing the broken state was observed at commit 79115b7  
-✓ **Root cause identified and named:** Tracker format violation at `broker_removal_kit/tracker.py:reconcile()`  
+✓ **Root cause identified and named:** Tracker format violation at `databroker_optout/tracker.py:reconcile()`  
 ✓ **Responsible code path documented:** The `reconcile()` function's tracker_data output structure  
 ✓ **Specification reference provided:** DESIGN.md explicitly requires broker-keyed format  
 ✓ **Fix verification completed:** The fix in commit 09db818 is confirmed correct and working  

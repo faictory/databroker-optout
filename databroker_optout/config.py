@@ -1,7 +1,7 @@
 import sys
 from typing import Dict, Any
 
-from broker_removal_kit.errors import BrokerKitError
+from databroker_optout.errors import BrokerKitError
 
 if sys.version_info >= (3, 11):
     import tomllib

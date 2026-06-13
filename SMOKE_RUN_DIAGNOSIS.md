@@ -5,7 +5,7 @@ The bundled end-to-end smoke run is now **WORKING** on the current main branch (
 
 ## Reproduction Command
 ```bash
-python -m broker_removal_kit examples/sample.csv --config examples/brk.toml
+python -m databroker_optout examples/sample.csv --config examples/brk.toml
 ```
 
 ## Current Output (Working State)
@@ -13,7 +13,7 @@ python -m broker_removal_kit examples/sample.csv --config examples/brk.toml
 
 **Stdout:**
 ```
-broker-removal-kit — exposure audit
+databroker-optout — exposure audit
 input: examples/sample.csv  (6 rows, csv)
 broker DB: 12 brokers, verified 2026-01-15
 
@@ -36,7 +36,7 @@ tracker: brk-out/tracker.json  (5 pending · 0 submitted · 0 confirmed)
 
 **Issue:** Tracker data structure format mismatch
 
-**Location:** `broker_removal_kit/tracker.py` (specifically the `tracker.reconcile()` function and tracker load/save logic)
+**Location:** `databroker_optout/tracker.py` (specifically the `tracker.reconcile()` function and tracker load/save logic)
 
 **Root Cause Details:**
 - The tracker.json file was being serialized in an **exposure-keyed format** (organized by exposures with brokers nested under them)
@@ -96,5 +96,5 @@ All 252 tests pass with the corrected structure.
 ## Acceptance Criteria Met
 ✓ Diagnosis artifact exists and is committed to repo
 ✓ Contains real captured output (verbatim, not paraphrased)
-✓ Names specific root cause location: `broker_removal_kit/tracker.py` (tracker.reconcile and load/save logic)
+✓ Names specific root cause location: `databroker_optout/tracker.py` (tracker.reconcile and load/save logic)
 ✓ Provides actionable details for follow-up work if needed (format specification mismatch)

@@ -2,12 +2,12 @@
 
 ## Command Invoked
 ```
-python -m broker_removal_kit examples/sample.csv --config examples/brk.toml
+python -m databroker_optout examples/sample.csv --config examples/brk.toml
 ```
 
 ## Working Directory
 ```
-/Users/boldfield/.agentask/wt-worker-5-fAIctory-broker-removal-kit
+/Users/boldfield/.agentask/wt-worker-5-fAIctory-databroker-optout
 ```
 
 ## Exit Code
@@ -17,7 +17,7 @@ python -m broker_removal_kit examples/sample.csv --config examples/brk.toml
 
 ## Full Output (stdout)
 ```
-broker-removal-kit — exposure audit
+databroker-optout — exposure audit
 input: examples/sample.csv  (6 rows, csv)
 broker DB: 12 brokers, verified 2026-01-15
 

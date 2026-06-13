@@ -16,7 +16,7 @@ class BrokerDB:
     def _load(self):
         if self._data is not None:
             return
-        package_files = importlib.resources.files('broker_removal_kit')
+        package_files = importlib.resources.files('databroker_optout')
         json_bytes = (package_files / 'brokers.json').read_text(encoding='utf-8')
         raw = json.loads(json_bytes)
         self._data = raw

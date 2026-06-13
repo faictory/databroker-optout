@@ -6,7 +6,7 @@
 ## Verification Methodology
 Starting from a completely clean state:
 1. Removed all `brk-out/` directories and artifacts from any prior runs
-2. Executed the documented smoke run entrypoint: `python -m broker_removal_kit examples/sample.csv --config examples/brk.toml`
+2. Executed the documented smoke run entrypoint: `python -m databroker_optout examples/sample.csv --config examples/brk.toml`
 3. Verified exit code (must be 0)
 4. Verified all expected artifacts were generated under `brk-out/requests/` and `brk-out/tracker.json`
 5. Verified the structure and content of generated files match expected schema
@@ -25,7 +25,7 @@ The smoke run completes successfully from a clean state with all expected output
 
 ### Stdout Output (Verbatim)
 ```
-broker-removal-kit — exposure audit
+databroker-optout — exposure audit
 input: examples/sample.csv  (6 rows, csv)
 broker DB: 12 brokers, verified 2026-01-15
 
@@ -91,7 +91,7 @@ All request files contain properly formatted email templates with correct recipi
 
 ## Conclusion
 
-The broker-removal-kit smoke run is **fully functional and verified working** from a clean state. This independent verification confirms:
+The databroker-optout smoke run is **fully functional and verified working** from a clean state. This independent verification confirms:
 - The tool correctly ingests and normalizes the sample CSV
 - Deduplication logic works correctly (2 rows deduped)
 - Deadname detection and flagging works (HIGH priority correctly flagged)

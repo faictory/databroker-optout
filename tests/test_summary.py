@@ -1,6 +1,6 @@
 import json
 
-from broker_removal_kit.summary import format_text, format_json
+from databroker_optout.summary import format_text, format_json
 
 
 def test_format_text_basic():
@@ -58,7 +58,7 @@ def test_format_text_basic():
 
     output = format_text(result)
 
-    assert "broker-removal-kit — exposure audit" in output
+    assert "databroker-optout — exposure audit" in output
     assert "input: examples/sample.csv  (6 rows, csv)" in output
     assert "broker DB: 12 brokers, verified 2026-01-15" in output
     assert "exposures: 4 unique  (2 rows deduped)" in output

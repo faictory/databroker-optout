@@ -1,4 +1,4 @@
-from broker_removal_kit.normalize import dedup_key
+from databroker_optout.normalize import dedup_key
 
 
 def build_exposures(records):

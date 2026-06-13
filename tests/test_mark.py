@@ -1,6 +1,6 @@
 import pytest
-from broker_removal_kit.tracker import parse_mark
-from broker_removal_kit.errors import BrokerKitError
+from databroker_optout.tracker import parse_mark
+from databroker_optout.errors import BrokerKitError
 
 
 class TestParseMark:

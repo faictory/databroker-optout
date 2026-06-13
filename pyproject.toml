@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "broker-removal-kit"
+name = "databroker-optout"
 version = "0.1.0"
 description = "Audit and generate removal requests for personal information on data brokers"
 readme = "README.md"
@@ -20,7 +20,7 @@ dev = [
 ]
 
 [tool.setuptools]
-packages = ["broker_removal_kit"]
+packages = ["databroker_optout"]
 
 [tool.setuptools.package-data]
-broker_removal_kit = ["brokers.json"]
+databroker_optout = ["brokers.json"]

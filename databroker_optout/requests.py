@@ -1,4 +1,4 @@
-import broker_removal_kit.brokerdb as brokerdb
+import databroker_optout.brokerdb as brokerdb
 
 
 def render_request(broker_db_entry, listings, identity, date):

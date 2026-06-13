@@ -1,6 +1,6 @@
 import os
 import json
-from broker_removal_kit.cli import main
+from databroker_optout.cli import main
 
 
 class TestIntegrationOutFlag:

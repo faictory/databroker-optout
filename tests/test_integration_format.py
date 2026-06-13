@@ -1,6 +1,6 @@
 import json
 import tempfile
-from broker_removal_kit.cli import main
+from databroker_optout.cli import main
 
 
 class TestJsonFormat:
@@ -142,7 +142,7 @@ class TestTextFormat:
             captured = capsys.readouterr()
 
             # Verify human-readable header is present
-            assert 'broker-removal-kit' in captured.out
+            assert 'databroker-optout' in captured.out
             assert 'exposure audit' in captured.out
 
     def test_text_format_contains_input_info(self, capsys):
@@ -192,7 +192,7 @@ class TestTextFormat:
             captured = capsys.readouterr()
 
             # Default format should be text (human-readable)
-            assert 'broker-removal-kit' in captured.out
+            assert 'databroker-optout' in captured.out
             assert 'exposure audit' in captured.out
             assert 'exposures:' in captured.out
             assert 'tracker:' in captured.out
