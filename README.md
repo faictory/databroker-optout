@@ -11,9 +11,15 @@ An offline tool for auditing personal data exposures across data brokers, genera
 
 All broker opt-out procedures come from a bundled, dated database—no external network calls are made.
 
-## License
+## Install
 
-MIT. See [LICENSE](LICENSE).
+Python 3.10+. Install in development mode:
+
+```bash
+pip install -e ".[dev]"   # or: make build
+```
+
+The tool is then runnable as a module (`python -m databroker_optout …`).
 
 ## Quick Start
 
@@ -82,3 +88,11 @@ python -m databroker_optout examples/sample.csv --format json --out /tmp/audit
 ## Offline Operation
 
 This tool operates entirely offline. All broker contact info, opt-out URLs, and verification dates are bundled in the package—no network access is required or attempted.
+
+## Design
+
+See [DESIGN.md](DESIGN.md) for the full problem statement, goals, non-goals, and acceptance criteria.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
