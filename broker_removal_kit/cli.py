@@ -30,7 +30,7 @@ def main(argv=None):
     )
     parser.add_argument(
         '--out',
-        default='brk-out',
+        default=None,
         metavar='DIR',
         help='Output directory for requests/ and tracker.json (default: brk-out)',
     )
@@ -87,9 +87,9 @@ def main(argv=None):
         if args.config:
             cfg = config.load_config(args.config)
             identity = {
-                'name': cfg.get('name'),
-                'email': cfg.get('email'),
-                'address': cfg.get('address'),
+                'name': cfg.get('name') or '<YOUR NAME>',
+                'email': cfg.get('email') or '<YOUR EMAIL>',
+                'address': cfg.get('address') or '<YOUR ADDRESS>',
             }
             config_deadnames = cfg.get('deadnames', [])
             config_out_dir = cfg.get('dir')
@@ -98,7 +98,7 @@ def main(argv=None):
         all_deadnames = config_deadnames + args.deadnames
 
         # Resolve output directory: CLI --out overrides config dir
-        out_dir = args.out if args.out != 'brk-out' else (config_out_dir or 'brk-out')
+        out_dir = args.out or config_out_dir or 'brk-out'
 
         # Parse all --mark flags
         marks = []
@@ -123,9 +123,6 @@ def main(argv=None):
         return 0
 
     except errors.BrokerKitError as e:
-        print(f"error: {e}", file=sys.stderr)
-        return 2
-    except Exception as e:
         print(f"error: {e}", file=sys.stderr)
         return 2
 

@@ -1,0 +1,21 @@
+To: privacy@spokeo.com
+Subject: Opt-out / record removal request — Spokeo
+Date: 2026-06-13
+Method: email        Opt-out URL: https://www.spokeo.com/optout
+(Broker procedure last verified: 2026-01-15)
+
+To whom it may concern,
+
+Under your published opt-out policy I request removal of the following
+record(s) listing my personal information on Spokeo:
+
+  - Name shown: Jordan Rivera (also listed as: James Rivera)
+    Location: Portland, OR    Listing: https://www.spokeo.com/Jordan-Rivera
+  - Name shown: Jordan Rivera (also listed as: James Rivera)
+    Location: Portland, OR    Listing: https://www.spokeo.com/Jordan-Rivera-2
+
+Please remove these record(s) and confirm in writing.
+
+Regards,
+Test User <<YOUR EMAIL>>
+<YOUR ADDRESS>

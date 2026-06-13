@@ -1,0 +1,19 @@
+To: privacy@radaris.com
+Subject: Opt-out / record removal request — Radaris
+Date: 2026-06-13
+Method: email        Opt-out URL: https://radaris.com/optout
+(Broker procedure last verified: 2026-01-15)
+
+To whom it may concern,
+
+Under your published opt-out policy I request removal of the following
+record(s) listing my personal information on Radaris:
+
+  - Name shown: Jordan Rivera
+    Location: Eugene, OR    Listing: https://www.radaris.com/Jordan-Rivera
+
+Please remove these record(s) and confirm in writing.
+
+Regards,
+Partial User <partial@example.com>
+<YOUR ADDRESS>
