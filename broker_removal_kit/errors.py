@@ -1,0 +1,2 @@
+class BrokerKitError(Exception):
+	pass
