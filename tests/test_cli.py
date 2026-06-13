@@ -64,7 +64,7 @@ class TestBasicRun:
             with open(tracker_path) as f:
                 tracker = json.load(f)
             assert tracker['version'] == 1
-            assert 'exposures' in tracker
+            assert 'brokers' in tracker
 
 
 class TestFormatFlag:
@@ -226,7 +226,7 @@ class TestMarkFlag:
             tracker_path = os.path.join(out_dir, 'tracker.json')
             with open(tracker_path) as f:
                 tracker = json.load(f)
-            assert tracker['exposures']['exp-001']['brokers']['spokeo']['status'] == 'submitted'
+            assert tracker['brokers']['spokeo']['status'] == 'submitted'
 
     def test_mark_persists_on_rerun(self):
         with tempfile.TemporaryDirectory() as out_dir:
@@ -236,7 +236,7 @@ class TestMarkFlag:
             tracker_path = os.path.join(out_dir, 'tracker.json')
             with open(tracker_path) as f:
                 tracker = json.load(f)
-            assert tracker['exposures']['exp-001']['brokers']['spokeo']['status'] == 'submitted'
+            assert tracker['brokers']['spokeo']['status'] == 'submitted'
 
     def test_multiple_marks(self):
         with tempfile.TemporaryDirectory() as out_dir:
@@ -249,8 +249,8 @@ class TestMarkFlag:
             tracker_path = os.path.join(out_dir, 'tracker.json')
             with open(tracker_path) as f:
                 tracker = json.load(f)
-            assert tracker['exposures']['exp-001']['brokers']['spokeo']['status'] == 'submitted'
-            assert tracker['exposures']['exp-001']['brokers']['whitepages']['status'] == 'confirmed'
+            assert tracker['brokers']['spokeo']['status'] == 'submitted'
+            assert tracker['brokers']['whitepages']['status'] == 'confirmed'
 
 
 class TestErrors:

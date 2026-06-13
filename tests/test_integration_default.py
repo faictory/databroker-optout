@@ -56,15 +56,11 @@ class TestIntegrationDefaultRun:
             tracker = json.load(f)
 
         assert tracker['version'] == 1
-        assert 'exposures' in tracker
+        assert 'brokers' in tracker
 
-        exposures = tracker['exposures']
-        assert len(exposures) == 4
+        brokers = tracker['brokers']
+        assert len(brokers) == 5
 
         # Verify all broker entries are at pending status
-        total_brokers = 0
-        for exposure_id, exposure_entry in exposures.items():
-            for broker_slug, broker_entry in exposure_entry['brokers'].items():
-                assert broker_entry['status'] == 'pending'
-                total_brokers += 1
-        assert total_brokers == 5
+        for broker_slug, broker_entry in brokers.items():
+            assert broker_entry['status'] == 'pending'
