@@ -58,14 +58,13 @@ def render_request(broker_db_entry, listings, identity, date):
 
     # Signature
     if identity:
-        name = identity.get('name') or '<YOUR NAME>'
-        email = identity.get('email') or '<YOUR EMAIL>'
-        address = identity.get('address') or '<YOUR ADDRESS>'
+        name = identity['name']
+        email = identity['email']
+        address = identity['address']
         lines.append(f"{name} <{email}>")
         lines.append(address)
     else:
-        lines.append("<YOUR NAME>")
-        lines.append("<YOUR EMAIL>")
+        lines.append("<YOUR NAME> <<YOUR EMAIL>>")
         lines.append("<YOUR ADDRESS>")
 
     return "\n".join(lines)
