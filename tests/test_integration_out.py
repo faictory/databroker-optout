@@ -25,7 +25,7 @@ class TestIntegrationOutFlag:
         with open(out_dir / 'tracker.json') as f:
             tracker = json.load(f)
         assert tracker['version'] == 1
-        assert 'exposures' in tracker
+        assert 'brokers' in tracker
 
         # Verify default brk-out/ directory was NOT created in cwd
         assert not os.path.exists('brk-out'), "Default brk-out/ directory should not be created when using --out flag"
