@@ -188,13 +188,14 @@ class TestOutFlag:
                 f.write('name = "Test"\n')
                 f.write(f'dir = "{tmpdir}/config-dir"\n')
 
+            out_dir = os.path.join(tmpdir, 'brk-out')
             result = main([
                 'examples/sample.csv',
                 '--config', config_path,
-                '--out', 'brk-out'
+                '--out', out_dir
             ])
             assert result == 0
-            tracker_path = os.path.join('brk-out', 'tracker.json')
+            tracker_path = os.path.join(out_dir, 'tracker.json')
             assert os.path.exists(tracker_path)
 
     def test_out_config_default(self):
