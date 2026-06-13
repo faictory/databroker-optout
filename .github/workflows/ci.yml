@@ -26,3 +26,5 @@ jobs:
       - run: make check
 
       - run: make test
+
+      - run: make run
