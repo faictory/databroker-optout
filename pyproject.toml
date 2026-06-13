@@ -21,3 +21,6 @@ dev = [
 
 [tool.setuptools]
 packages = ["broker_removal_kit"]
+
+[tool.setuptools.package-data]
+broker_removal_kit = ["brokers.json"]
